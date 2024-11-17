@@ -53,3 +53,10 @@ async def match_faces(request: FaceMatchRequest):
     
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))
+
+@app.get("/")
+async def health_check():
+    return {
+        "status": "healthy",
+        "message": "Face Matching Service is running"
+    }
